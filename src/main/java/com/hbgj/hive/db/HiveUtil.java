@@ -10,6 +10,13 @@ public class HiveUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(HiveUtil.class);
     private JdbcTemplate hiveJdbcTemplate;
 
+    public static final String REMOTE_DB_NAME="result";
+    public static final String REMOTE_TABLE_NAME="tableName";
+    public static final String REMOTE_TABLE_PARTITION="result";
+    public static final String LOCAL_DB_NAME="database_name";
+    public static final String LOCAL_TABLE_NAME="tab_name";
+    public static final String LOCAL_TABLE_PARTITION="partition";
+
     public JdbcTemplate getHiveJdbcTemplate() {
         return hiveJdbcTemplate;
     }

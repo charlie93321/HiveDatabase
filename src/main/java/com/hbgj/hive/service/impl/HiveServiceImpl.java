@@ -15,6 +15,8 @@ import java.util.Map;
 @Service
 public class HiveServiceImpl implements HiveService {
     private static final Logger LOGGER = LoggerFactory.getLogger(HiveServiceImpl.class);
+    private static final String REMOTE = "LOCAL";
+
     @Autowired
     private HiveUtil hiveUtil;
     @Override
@@ -26,7 +28,12 @@ public class HiveServiceImpl implements HiveService {
             for (int i = 0; i < list.size(); i++) {
                 Map<String, Object> kv=list.get(i);
                 if(null!=kv) {
-                    Object dbName=kv.get("result");
+                    Object dbName=null;
+                    if(REMOTE.equals("REMOTE")){
+                        dbName=kv.get(HiveUtil.REMOTE_DB_NAME);
+                    }else{
+                        dbName=kv.get(HiveUtil.LOCAL_DB_NAME);
+                    }
                     if(null!=dbName )dbs.add(dbName.toString());
                 }
             }
@@ -54,7 +61,12 @@ public class HiveServiceImpl implements HiveService {
             for (int i = 0; i < list.size(); i++) {
                 Map<String, Object> kv=list.get(i);
                 if(null!=kv) {
-                    Object tname=kv.get("tableName");
+                    Object tname=null;
+                    if(REMOTE.equals("REMOTE")){
+                        tname=kv.get(HiveUtil.REMOTE_TABLE_NAME);
+                    }else{
+                        tname=kv.get(HiveUtil.LOCAL_TABLE_NAME);
+                    }
                     if(null!=tname)tabs.add(tname.toString());
                 }
             }
@@ -81,7 +93,12 @@ public class HiveServiceImpl implements HiveService {
                 for (int i = 0; i < list.size(); i++) {
                     Map<String, Object> kv = list.get(i);
                     if (null != kv) {
-                         Object partion=kv.get("result");
+                         Object partion=null;
+                        if(REMOTE.equals("REMOTE")){
+                            partion=kv.get(HiveUtil.REMOTE_TABLE_PARTITION);
+                        }else{
+                            partion=kv.get(HiveUtil.LOCAL_TABLE_PARTITION);
+                        }
                          if(null!=partion)partions.add(partion.toString());
                     }
                 }

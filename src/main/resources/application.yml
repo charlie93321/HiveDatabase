@@ -7,11 +7,14 @@ logging:
   config: classpath:config/logback-boot.xml
 
 hive:
-  url: 늘복앞난킨했향본주국우밀으원쳐규엘쳐불국규지간두근렇세센높가감난온정나씨법스
+  #url: 늘복앞난킨했향본주국우밀으원쳐규엘쳐불국규지간두근렇세센높가감난온정나씨법스
+  url: 늘복앞난킨했향본주국우밀으패마칠을이했칠많릴법찾높기릴악억매근간짝애니정복기넬식법제
   driver-class-name: org.apache.hive.jdbc.HiveDriver
   type: org.apache.tomcat.jdbc.pool.DataSource
-  user: 장러러스L사M
-  password: 빠넬L장난젊랜온년한긍으
+  user: 앞나정는앞효
+  #user: 장러러스L사M
+  #password: 빠넬L장난젊랜온년한긍으
+  password: 앞나정는앞효
   # 下面为连接池的补充设置，应用到上面所有数据源中
   # 初始化大小，最小，最大
    #initialSize: 1
@@ -30,15 +33,3 @@ hive:
   # 打开PSCache，并且指定每个连接上PSCache的大小
    #poolPreparedStatements: true
    #maxPoolPreparedStatementPerConnectionSize: 20
-
-#remote:
-      #dbname: result
-      #table:
-           #name: tableName
-           #isTemporary: false
-           #partions: result
-#local:
-      #dbname: database_name
-            #table:
-                 #name: tab_name
-                 #partions: partition
